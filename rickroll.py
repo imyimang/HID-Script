@@ -1,6 +1,6 @@
-# 作用:
-# 縮小所有視窗，開啟記事本並打上"YOU ARE BEEN HACKED"
-# 然後透過powershell開啟rickroll連結(可能會有卡輸入法的問題)
+# Purpose:
+# Minimize all windows, open Notepad, and type "YOU ARE BEEN HACKED"
+# Then, use PowerShell to open a Rickroll link (there may be issues with input method switching).
 
 import time
 import usb_hid
