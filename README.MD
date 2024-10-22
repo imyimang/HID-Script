@@ -22,4 +22,4 @@
 - Rickroll
     - 打開記事本寫下 "YOU ARE BEEN HACKED" ，並且利用 Powershell 開啟 RickRoll 連結
 - Steal_Info
-    - 開啟 Powershell ，並且透過 GitHub Raw 功能下載並執行 `Steal_Info_Script.ps1` 的腳本內容(預設是傳送到我的 discord webhook 可以將專案 fork 後更改 `Steal_Info_Script.ps1` 第一行的 **$webhookUrl** 和 `Steal_Info.py` 的 **RawUrl**)
+    - 開啟 Powershell ，並且透過 GitHub Raw 功能下載並執行 `Steal_Info_Script.ps1` 的腳本內容(預設是傳送到我的 discord webhook ，可以將專案 fork 後更改 `Steal_Info_Script.ps1` 第一行的 **$webhookUrl** 和 `Steal_Info.py` 的 **RawUrl**)
