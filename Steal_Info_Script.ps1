@@ -1,4 +1,6 @@
-$webhookUrl = "https://discord.com/api/webhooks/1297857112852140105/84TMuOVCJVaZ6ly3_hp7grnFGmEDkoXj1gvnuYrc3DIlEZ-gfu_aFIM_qiuY9HU6M7JG"
+$webhookUrl = "your webhook url"
+
+
 $externalIp = Invoke-RestMethod -Uri "https://api.ipify.org?format=json"
 $gpuInfo = Get-WmiObject -Class Win32_VideoController | ForEach-Object {
     @{
