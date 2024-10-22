@@ -13,7 +13,7 @@ RawUrl = "https://raw.githubusercontent.com/imyimang/HID-Script/refs/heads/main/
 
 def open(word):
     kbd.send(Keycode.WINDOWS, Keycode.R)
-    time.sleep(0.1)
+    time.sleep(0.5)
     layout.write(word, delay = 0.01)
     kbd.send(Keycode.ENTER)
     time.sleep(2)
