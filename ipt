@@ -1,1 +1,7 @@
-ipconfig
+$webhookUrl = "https://discord.com/api/webhooks/1297857112852140105/84TMuOVCJVaZ6ly3_hp7grnFGmEDkoXj1gvnuYrc3DIlEZ-gfu_aFIM_qiuY9HU6M7JG"
+$messageData = @{
+    content = "Test message from PowerShell"
+}
+$jsonMessage = $messageData | ConvertTo-Json
+$response = Invoke-RestMethod -Uri $webhookUrl -Method Post -Body $jsonMessage -ContentType "application/json"
+$response
