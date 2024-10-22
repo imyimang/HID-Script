@@ -26,11 +26,6 @@ def open(word):
 
 time.sleep(2)
 
-kbd.send(Keycode.SHIFT)
-time.sleep(0.1)
-kbd.release(Keycode.ALT)
-time.sleep(0.5)
-
 open("powershell")
 time.sleep(1)
 powershell_script = '''
