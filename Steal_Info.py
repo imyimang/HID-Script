@@ -24,14 +24,7 @@ def open(word):
     kbd.send(Keycode.ENTER)
     time.sleep(1)
 
-time.sleep(5)
-
-kbd.press(Keycode.WINDOWS)
-time.sleep(0.1)
-kbd.send(Keycode.D)
-time.sleep(0.1)
-kbd.release(Keycode.WINDOWS)
-time.sleep(0.5)
+time.sleep(4)
 
 kbd.send(Keycode.SHIFT)
 time.sleep(0.1)
