@@ -48,6 +48,6 @@ for line in powershell_script.splitlines():
     kbd.send(Keycode.ENTER)
     time.sleep(0.3)
 time.sleep(1)
-layout.write("Get-Process PowerShell | Stop-Process -Force", delay = 0.02)
+layout.write("exit", delay = 0.02)
 time.sleep(0.3)
 kbd.send(Keycode.ENTER)
